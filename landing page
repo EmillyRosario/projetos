@@ -1,0 +1,49 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Sparkles, ArrowRight } from "lucide-react";
+
+export default function LandingPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-purple-700 via-indigo-600 to-blue-500 text-white flex flex-col items-center justify-center px-6 py-12">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center"
+      >
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+          Bem-vindo à Nova Era Digital
+        </h1>
+        <p className="text-xl md:text-2xl mb-8 max-w-xl mx-auto">
+          Descubra como nossa solução pode transformar sua presença online com estilo e performance.
+        </p>
+        <Button className="text-lg px-8 py-6 rounded-2xl shadow-xl hover:bg-white hover:text-blue-600 transition-colors">
+          Comece Agora <ArrowRight className="ml-2" />
+        </Button>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="mt-20 grid md:grid-cols-3 gap-6 w-full max-w-5xl"
+      >
+        {["Design Inovador", "Performance Excepcional", "Suporte Premium"].map((title, index) => (
+          <Card
+            key={index}
+            className="bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-6 hover:scale-105 transition-transform"
+          >
+            <CardContent className="flex flex-col items-center text-center">
+              <Sparkles className="w-10 h-10 mb-4 text-yellow-400" />
+              <h3 className="text-2xl font-semibold mb-2">{title}</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+              </p>
+            </CardContent>
+          </Card>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
